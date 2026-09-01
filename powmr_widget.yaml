@@ -121,6 +121,10 @@ timestamp: Aug 31, 2026, 7:09:58 PM
 component: f7-card
 config:
   title: PowMr Inverter Status
+  stylesheet: |
+    .smooth-fade {
+      transition: opacity 0.4s ease-in-out !important;
+    }
   style:
     position: relative
     width: 100%
@@ -149,6 +153,7 @@ slots:
           # grid tower icon
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 5px
@@ -165,6 +170,7 @@ slots:
           # grid voltage text
           - component: Label
             config:
+              class: smooth-fade
               text: "=props.itemGridVoltage ? (items[props.itemGridVoltage].displayState || items[props.itemGridVoltage].state) : '0V'"
               style:
                 position: absolute
@@ -179,6 +185,7 @@ slots:
           # grid frequency text
           - component: Label
             config:
+              class: smooth-fade
               text: "=props.itemGridFrequency ? (items[props.itemGridFrequency].displayState || items[props.itemGridFrequency].state) : '0Hz'"
               style:
                 position: absolute
@@ -193,6 +200,7 @@ slots:
           # solar icon
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 5px
@@ -209,6 +217,7 @@ slots:
           # solar power text
           - component: Label
             config:
+              class: smooth-fade
               text: "=props.itemPVPower ? (items[props.itemPVPower].displayState || items[props.itemPVPower].state) : '0W'"
               style:
                 position: absolute
@@ -223,6 +232,7 @@ slots:
           # solar voltage text
           - component: Label
             config:
+              class: smooth-fade
               text: "=props.itemPVVoltage ? (items[props.itemPVVoltage].displayState || items[props.itemPVVoltage].state) : '0V'"
               style:
                 position: absolute
@@ -237,6 +247,7 @@ slots:
           # BYPASS text
           - component: Label
             config:
+              class: smooth-fade
               text: BYPASS
               style:
                 position: absolute
@@ -251,6 +262,7 @@ slots:
           # BYPASS arrow
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 100px
@@ -267,6 +279,7 @@ slots:
           # grid to ac2dc arrow
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 100px
@@ -283,6 +296,7 @@ slots:
           # ac2dc to battery arrow
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 100px
@@ -299,6 +313,7 @@ slots:
           # dc2ac to house arrow
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 100px
@@ -315,6 +330,7 @@ slots:
           # battery to dc2ac arrow
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 100px
@@ -331,6 +347,7 @@ slots:
           # solar to ac2dc arrow
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 100px
@@ -347,6 +364,7 @@ slots:
           # ac2dc icon
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 150px
@@ -383,7 +401,7 @@ slots:
                     height: 8
                     rx: 2
                     fill: '=(themeOptions.dark === "dark") ? "white" : "black"'
-                    
+
                 # outer Shell
                 - component: f7-row
                   config:
@@ -396,7 +414,7 @@ slots:
                     fill: none
                     stroke: '=(themeOptions.dark === "dark") ? "white" : "black"'
                     stroke-width: 4
-                    
+
                 # base fill - based on SOC
                 - component: f7-row
                   config:
@@ -407,7 +425,7 @@ slots:
                     height: "=0.78 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)"
                     rx: 2
                     fill: '=(themeOptions.dark === "dark") ? "white" : "black"'
-                    
+
                 # animated charging ghost overlay
                 - component: f7-row
                   config:
@@ -495,6 +513,7 @@ slots:
           # battery charging current text
           - component: Label
             config:
+              class: smooth-fade
               text: "=props.itemBatteryChargeCurrent ? (items[props.itemBatteryChargeCurrent].displayState || items[props.itemBatteryChargeCurrent].state) : '0A'"
               style:
                 position: absolute
@@ -509,6 +528,7 @@ slots:
           # battery discharging current text
           - component: Label
             config:
+              class: smooth-fade
               text: "=props.itemBatteryDischargeCurrent ? (items[props.itemBatteryDischargeCurrent].displayState || items[props.itemBatteryDischargeCurrent].state) : '0A'"
               style:
                 position: absolute
@@ -523,6 +543,7 @@ slots:
           # dc2ac icon
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 360px
@@ -580,6 +601,7 @@ slots:
           # buzzer icon
           - component: f7-block
             config:
+              class: smooth-fade
               style:
                 position: absolute
                 left: 430px
