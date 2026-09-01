@@ -172,7 +172,7 @@ slots:
                 font-weight: bold
                 text-align: center
                 left: 30px
-                top: 70px
+                top: 85px
                 width: 50px
                 opacity: "=props.itemGridVoltage ? (Number.parseFloat(items[props.itemGridVoltage].state) > 10 ? '1' : '0') : '1'"
 
@@ -186,7 +186,7 @@ slots:
                 font-weight: bold
                 text-align: center
                 left: 30px
-                top: 90px
+                top: 105px
                 width: 50px
                 opacity: "=props.itemGridFrequency ? (Number.parseFloat(items[props.itemGridFrequency].state) > 10 ? '1' : '0') : '1'"
 
