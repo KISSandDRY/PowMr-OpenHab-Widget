@@ -401,7 +401,7 @@ slots:
                 top: 330px
                 width: 50px
 
-          # battery voltage text
+          # battery status text
           - component: Label
             config:
               text: "=props.chargingItem ? (items[props.chargingItem].displayState || items[props.chargingItem].state) : ''"
