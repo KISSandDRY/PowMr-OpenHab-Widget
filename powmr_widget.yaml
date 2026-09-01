@@ -419,10 +419,10 @@ slots:
                 - component: f7-row
                   config:
                     tag: rect
-                    x: 30
-                    y: "=87 - (0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0))"
-                    width: 40
-                    height: "=0.78 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)"
+                    x: 34
+                    y: "=86 - (0.72 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0))"
+                    width: 32
+                    height: "=0.72 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)"
                     rx: 2
                     fill: '=(themeOptions.dark === "dark") ? "white" : "black"'
 
@@ -430,27 +430,27 @@ slots:
                 - component: f7-row
                   config:
                     tag: rect
-                    x: 33
-                    y: "=88 - (0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0))"
-                    width: 34
-                    height: "=0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)"
+                    x: 34
+                    y: "=86 - (0.72 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0))"
+                    width: 32
+                    height: "=0.72 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)"
                     rx: 2
                     fill: '=(themeOptions.dark === "dark") ? "white" : "black"'
-                    visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
+                    opacity: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0 ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
                         config:
                           tag: animate
                           attributeName: height
-                          values: "=(0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)) + '; 76'"
+                          values: "=(0.72 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)) + '; 72'"
                           dur: 1.5s
                           repeatCount: indefinite
                       - component: f7-row
                         config:
                           tag: animate
                           attributeName: y
-                          values: "=(88 - (0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0))) + '; 12'"
+                          values: "=(86 - (0.72 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0))) + '; 14'"
                           dur: 1.5s
                           repeatCount: indefinite
                       - component: f7-row
