@@ -18,7 +18,7 @@ props:
       name: itemGridActive
       required: false
       type: TEXT
-    
+
     - context: item
       description: Running on battery
       label: Running on Battery Item
@@ -32,42 +32,42 @@ props:
       name: chargingItem
       required: false
       type: TEXT
-     
+
     - context: item
       description: Buzzer status
       label: Buzzer Status Item
       name: buzzerStatusItem
       required: false
       type: TEXT
-      
+
     - context: item
       description: PV Power (W)
       label: PV Power Item
       name: itemPVPower
       required: false
       type: TEXT
-      
+
     - context: item
       description: PV Voltage (V)
       label: PV Voltage Item
       name: itemPVVoltage
       required: false
       type: TEXT
-      
+
     - context: item
       description: Battery Voltage (V)
       label: Battery Voltage Item
       name: itemBatteryVoltage
       required: false
       type: TEXT
-      
+
     - context: item
       description: Battery Power (W)
       label: Battery Power Item
       name: itemBatteryPower
       required: false
       type: TEXT
-      
+
     - context: item
       description: Battery SOC (%)
       label: Battery SOC Item
@@ -95,7 +95,7 @@ props:
       name: itemLoadPower
       required: false
       type: TEXT
-      
+
     - context: item
       description: Load Percent (%)
       label: Load Percent Item
@@ -116,7 +116,7 @@ props:
       name: itemBatteryDischargeCurrent
       required: false
       type: TEXT
-      
+
 timestamp: Aug 31, 2026, 7:09:58 PM
 component: f7-card
 config:
@@ -514,3 +514,197 @@ slots:
                 -webkit-mask-position: center
                 -webkit-mask-size: contain
                 opacity: "=props.buzzerStatusItem && items[props.buzzerStatusItem].state === 'OFF' ? '1' : '0'"
+
+          # animation
+          - component: f7-row
+            config:
+              tag: svg
+              viewBox: 0 0 500 150
+              style:
+                position: absolute
+                left: 100px
+                top: 140px
+                width: 500px
+                height: 150px
+                pointer-events: none
+            slots:
+              default:
+                - component: f7-row
+                  config:
+                    tag: defs
+                  slots:
+                    default:
+                      - component: f7-row
+                        config: { tag: path, id: p-bypass, d: "M0 10 L405 10 L405 95" }
+                      - component: f7-row
+                        config: { tag: path, id: p-grid2ac, d: "M0 55 L40 55" }
+                      - component: f7-row
+                        config: { tag: path, id: p-ac2batt, d: "M105 55 L170 55 L170 98" }
+                      - component: f7-row
+                        config: { tag: path, id: p-batt2dc, d: "M190 98 L190 55 L250 55" }
+                      - component: f7-row
+                        config: { tag: path, id: p-dc2house, d: "M315 55 L385 55 L385 95" }
+                      - component: f7-row
+                        config: { tag: path, id: p-sol2ac, d: "M0 140 L75 140 L75 90" }
+
+                # animated dot: bypass
+                - component: f7-row
+                  config:
+                    tag: circle
+                    r: 4
+                    fill: "=(themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    visible: "=props.loadEnabled && props.itemGridActive && items[props.loadEnabled].state === 'ON' && items[props.itemGridActive].state === 'ON'"
+                  slots:
+                    default:
+                      - component: f7-row
+                        config:
+                          tag: animateMotion
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+                        slots:
+                          default:
+                            - component: f7-row
+                              config: { tag: mpath, "xlink:href": "#p-bypass" }
+                      - component: f7-row
+                        config:
+                          tag: animate
+                          attributeName: opacity
+                          values: "0;1;1;0"
+                          keyTimes: "0;0.1;0.9;1"
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+
+                # animated dot: grid to ac2dc
+                - component: f7-row
+                  config:
+                    tag: circle
+                    r: 4
+                    fill: "=(themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
+                  slots:
+                    default:
+                      - component: f7-row
+                        config:
+                          tag: animateMotion
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+                        slots:
+                          default:
+                            - component: f7-row
+                              config: { tag: mpath, "xlink:href": "#p-grid2ac" }
+                      - component: f7-row
+                        config:
+                          tag: animate
+                          attributeName: opacity
+                          values: "0;1;1;0"
+                          keyTimes: "0;0.1;0.9;1"
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+
+                # animated dot: ac2dc to battery
+                - component: f7-row
+                  config:
+                    tag: circle
+                    r: 4
+                    fill: "=(themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
+                  slots:
+                    default:
+                      - component: f7-row
+                        config:
+                          tag: animateMotion
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+                        slots:
+                          default:
+                            - component: f7-row
+                              config: { tag: mpath, "xlink:href": "#p-ac2batt" }
+                      - component: f7-row
+                        config:
+                          tag: animate
+                          attributeName: opacity
+                          values: "0;1;1;0"
+                          keyTimes: "0;0.1;0.9;1"
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+
+                # animated dot: battery to dc2ac
+                - component: f7-row
+                  config:
+                    tag: circle
+                    r: 4
+                    fill: "=(themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    visible: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON'"
+                  slots:
+                    default:
+                      - component: f7-row
+                        config:
+                          tag: animateMotion
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) || 1))) + 's'"
+                        slots:
+                          default:
+                            - component: f7-row
+                              config: { tag: mpath, "xlink:href": "#p-batt2dc" }
+                      - component: f7-row
+                        config:
+                          tag: animate
+                          attributeName: opacity
+                          values: "0;1;1;0"
+                          keyTimes: "0;0.1;0.9;1"
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) || 1))) + 's'"
+
+                # animated dot: dc2ac to house
+                - component: f7-row
+                  config:
+                    tag: circle
+                    r: 4
+                    fill: "=(themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    visible: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON'"
+                  slots:
+                    default:
+                      - component: f7-row
+                        config:
+                          tag: animateMotion
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+                        slots:
+                          default:
+                            - component: f7-row
+                              config: { tag: mpath, "xlink:href": "#p-dc2house" }
+                      - component: f7-row
+                        config:
+                          tag: animate
+                          attributeName: opacity
+                          values: "0;1;1;0"
+                          keyTimes: "0;0.1;0.9;1"
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+
+                # animated dot: solar to ac2dc
+                - component: f7-row
+                  config:
+                    tag: circle
+                    r: 4
+                    fill: "=(themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    visible: "=props.itemPVPower && Number.parseFloat(items[props.itemPVPower].state) > 5"
+                  slots:
+                    default:
+                      - component: f7-row
+                        config:
+                          tag: animateMotion
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemPVPower].state) || 1))) + 's'"
+                        slots:
+                          default:
+                            - component: f7-row
+                              config: { tag: mpath, "xlink:href": "#p-sol2ac" }
+                      - component: f7-row
+                        config:
+                          tag: animate
+                          attributeName: opacity
+                          values: "0;1;1;0"
+                          keyTimes: "0;0.1;0.9;1"
+                          repeatCount: indefinite
+                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemPVPower].state) || 1))) + 's'"
