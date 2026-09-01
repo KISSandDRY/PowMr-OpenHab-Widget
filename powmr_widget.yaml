@@ -127,7 +127,7 @@ props:
 timestamp: Aug 31, 2026, 7:09:58 PM
 component: f7-card
 config:
-  title: '=items[props.inverterOnline].state === "online" ? "PowMr Inverter Status - Online" : "PowMr Inverter Status - Offline"'
+  title: 'PowMr Inverter Status'
   stylesheet: |
     .smooth-fade {
       transition: opacity 0.4s ease-in-out !important;
