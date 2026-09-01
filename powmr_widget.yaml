@@ -62,6 +62,13 @@ props:
       type: TEXT
 
     - context: item
+      description: PV Current (A)
+      label: PV Current Item
+      name: itemPVCurrent
+      required: false
+      type: TEXT
+
+    - context: item
       description: Battery Voltage (V)
       label: Battery Voltage Item
       name: itemBatteryVoltage
@@ -237,12 +244,12 @@ slots:
               class: smooth-fade
               style:
                 position: absolute
-                left: 5px
-                top: 130px
-                width: 90px
+                left: 0px
+                top: 138px
+                width: 120px
                 height: 290px
                 background-color: '=(themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"  xml:space="preserve"> <style type="text/css"> .st0{fill:%23ffffff;} </style> <g> <path class="st0" d="M512,346.046l-1.425-19.564l-22.506-309.46h-16.96h-361.7H95.722L0,346.046h24.301h261.704l5.245,100.304 l-77.276,12.155v36.474h237.082v-36.474l-78.113-12.155l-22.498-100.304h141.943H512z M394.029,53.496h60.121l4.772,65.602h-66.087 L394.029,53.496z M392.341,146.453h68.572l5.102,70.162h-74.952L392.341,146.453z M123.096,53.496h59.141l-13.116,65.602h-65.108 L123.096,53.496z M131.025,309.572H48.598L67.68,243.97h76.462L131.025,309.572z M75.642,216.614l20.41-70.162h67.596 l-14.034,70.162H75.642z M246.574,309.572H158.92l13.117-65.602h81.697L246.574,309.572z M256.717,216.614h-79.208l14.033-70.162 h72.829L256.717,216.614z M197.01,119.097l13.121-65.602h64.382l-7.16,65.602H197.01z M362.017,309.572h-87.922l7.159-65.602 h81.955L362.017,309.572z M363.708,216.614h-79.47l7.653-70.162h73.092L363.708,216.614z M365.48,119.097h-70.606l7.159-65.602 h64.64L365.48,119.097z M389.372,309.572l1.192-65.602h77.441l4.768,65.602H389.372z"/> </g> </svg>')
+                -webkit-mask-image: url('data:image/svg+xml, <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" viewBox="0 0 100 125"><g transform="translate(0,-952.36218)"><path style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;opacity:1;color:black;fill:black;fill-opacity:1;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" d="M 24.4375 46.34375 A 1.0001 1.0001 0 0 0 23.65625 47.09375 L 16.03125 79 A 1.0001 1.0001 0 0 0 17 80.21875 L 83 80.21875 A 1.0001 1.0001 0 0 0 83.96875 79 L 76.3125 47.09375 A 1.0001 1.0001 0 0 0 75.34375 46.34375 L 24.65625 46.34375 A 1.0001 1.0001 0 0 0 24.4375 46.34375 z M 25.4375 48.34375 L 40.5 48.34375 L 39.90625 55.875 L 32.34375 55.875 L 32.8125 53 A 1.0001 1.0001 0 0 0 31.65625 51.8125 A 1.0001 1.0001 0 0 0 30.8125 52.65625 L 30.28125 55.875 L 23.625 55.875 L 25.4375 48.34375 z M 42.46875 48.34375 L 49.40625 48.34375 L 49.40625 55.875 L 41.875 55.875 L 42.46875 48.34375 z M 51.40625 48.34375 L 57.53125 48.34375 L 58.125 55.875 L 51.40625 55.875 L 51.40625 48.34375 z M 59.5 48.34375 L 74.53125 48.34375 L 78.84375 66.21875 L 71.40625 66.21875 L 69.1875 52.65625 A 1.0001 1.0001 0 0 0 68 51.8125 A 1.0001 1.0001 0 0 0 67.1875 53 L 67.65625 55.875 L 60.09375 55.875 L 59.5 48.34375 z M 23.15625 57.875 L 29.96875 57.875 L 26.65625 78.21875 L 18.28125 78.21875 L 23.15625 57.875 z M 32 57.875 L 39.75 57.875 L 39.09375 66.21875 L 30.65625 66.21875 L 32 57.875 z M 41.71875 57.875 L 49.40625 57.875 L 49.40625 66.21875 L 41.0625 66.21875 L 41.71875 57.875 z M 51.40625 57.875 L 58.28125 57.875 L 58.9375 66.21875 L 51.40625 66.21875 L 51.40625 57.875 z M 60.25 57.875 L 67.96875 57.875 L 69.34375 66.21875 L 60.90625 66.21875 L 60.25 57.875 z M 30.3125 68.21875 L 38.9375 68.21875 L 38.53125 73.375 A 1.0001 1.0001 0 1 0 40.5 73.53125 L 40.90625 68.21875 L 49.40625 68.21875 L 49.40625 78.21875 L 28.6875 78.21875 L 30.3125 68.21875 z M 51.40625 68.21875 L 59.09375 68.21875 L 59.5 73.53125 A 1.0001 1.0001 0 1 0 61.46875 73.375 L 61.0625 68.21875 L 69.6875 68.21875 L 71.3125 78.21875 L 51.40625 78.21875 L 51.40625 68.21875 z M 71.71875 68.21875 L 79.3125 68.21875 L 81.71875 78.21875 L 73.34375 78.21875 L 71.71875 68.21875 z M 44.5625 83.65625 A 1.0001 1.0001 0 0 0 43.6875 84.6875 L 43.6875 91 L 39.4375 91 A 1.0001 1.0001 0 0 0 39.21875 91 A 1.0059637 1.0059637 0 1 0 39.4375 93 L 60.59375 93 A 1.0001 1.0001 0 1 0 60.59375 91 L 56.3125 91 L 56.3125 84.6875 A 1.0001 1.0001 0 0 0 55.21875 83.65625 A 1.0001 1.0001 0 0 0 54.3125 84.6875 L 54.3125 91 L 45.6875 91 L 45.6875 84.6875 A 1.0001 1.0001 0 0 0 44.5625 83.65625 z " transform="translate(0,952.36218)"/></g></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
                 -webkit-mask-size: contain
@@ -258,7 +265,7 @@ slots:
                 font-size: 11px
                 font-weight: bold
                 text-align: center
-                left: 40px
+                left: 35px
                 top: 330px
                 width: 50px
                 opacity: "=props.itemPVPower ? (Number.parseFloat(items[props.itemPVPower].state) > 5 ? '1' : '0') : '1'"
@@ -273,10 +280,25 @@ slots:
                 font-size: 11px
                 font-weight: bold
                 text-align: center
-                left: 40px
+                left: 35px
                 top: 350px
                 width: 50px
                 opacity: "=props.itemPVVoltage ? (Number.parseFloat(items[props.itemPVVoltage].state) > 5 ? '1' : '0') : '1'"
+
+          # solar current text
+          - component: Label
+            config:
+              class: smooth-fade
+              text: "=props.itemPVCurrent ? (items[props.itemPVCurrent].displayState || items[props.itemPVCurrent].state) : '0A'"
+              style:
+                position: absolute
+                font-size: 11px
+                font-weight: bold
+                text-align: center
+                left: 110px
+                top: 295px
+                width: 50px
+                opacity: "=props.itemPVCurrent ? (Number.parseFloat(items[props.itemPVCurrent].state) > 5 ? '1' : '0') : '1'"
 
           # BYPASS text
           - component: Label
