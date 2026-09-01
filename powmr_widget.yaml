@@ -360,32 +360,110 @@ slots:
                 -webkit-mask-size: contain
                 opacity: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0 ? '1' : '0'"
 
-          # battery icon
-          - component: f7-block
+          # dynamic battery icon
+          - component: f7-row
             config:
+              tag: svg
+              viewBox: 0 0 100 100
               style:
                 position: absolute
                 left: 245px
                 top: 250px
                 width: 70px
                 height: 70px
-                background-color: '=(themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg fill="white" height="800" width="426.668" version="1.1" id="Capa_1" viewBox="0 0 32.0001 60" xml:space="preserve" sodipodi:docname="battery-svgrepo-com.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1" /><sodipodi:namedview id="namedview1" pagecolor="%23505050" bordercolor="%23eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="%23505050" showgrid="false"><inkscape:page x="0" y="0" width="32.000099" height="60" id="page2" margin="0" bleed="0" /></sodipodi:namedview> <path id="path1" style="fill-rule:nonzero" d="M 10.000049,0 V 4.0000488 H 3.4640626 c -1.91,0 -3.46406293857743,1.553916 -3.46406293857743,3.463916 V 56.535937 C -3.3857743e-7,58.445937 1.5540626,60 3.4640626,60 H 28.536035 c 1.91,0 3.464063,-1.554063 3.464063,-3.464063 V 7.4639648 c 0,-1.91 -1.554063,-3.463916 -3.464063,-3.463916 H 22.000049 V 0 Z M 12,1.9999512 h 8.000098 V 4.0000488 H 12 Z M 3.4640626,6 h 6.5359864 12 6.535986 C 29.344035,6 30,6.6559648 30,7.4639648 V 40.89126 h 0.0094 V 51.002637 H 30 v 5.5333 c 0,0.808 -0.655965,1.464112 -1.463965,1.464112 H 3.4640626 c -0.808,0 -1.463965,-0.656112 -1.463965,-1.464112 v -9.66958 h 0.0028 V 45 h -0.0028 V 7.4639648 C 2.0000976,6.6559648 2.6560626,6 3.4640626,6 Z" /> </svg>')
-                -webkit-mask-repeat: no-repeat
-                -webkit-mask-position: center
-                -webkit-mask-size: contain
+            slots:
+              default:
+                # terminal
+                - component: f7-row
+                  config:
+                    tag: rect
+                    x: 40
+                    y: 4
+                    width: 20
+                    height: 8
+                    rx: 2
+                    fill: '=(themeOptions.dark === "dark") ? "white" : "black"'
+                    
+                # outer Shell
+                - component: f7-row
+                  config:
+                    tag: rect
+                    x: 30
+                    y: 10
+                    width: 40
+                    height: 80
+                    rx: 5
+                    fill: none
+                    stroke: '=(themeOptions.dark === "dark") ? "white" : "black"'
+                    stroke-width: 4
+                    
+                # base fill - based on SOC
+                - component: f7-row
+                  config:
+                    tag: rect
+                    x: 30
+                    y: "=87 - (0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0))"
+                    width: 40
+                    height: "=0.78 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)"
+                    rx: 2
+                    fill: '=(themeOptions.dark === "dark") ? "white" : "black"'
+                    
+                # animated charging ghost overlay
+                - component: f7-row
+                  config:
+                    tag: rect
+                    x: 33
+                    y: "=88 - (0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0))"
+                    width: 34
+                    height: "=0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)"
+                    rx: 2
+                    fill: '=(themeOptions.dark === "dark") ? "white" : "black"'
+                    visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
+                  slots:
+                    default:
+                      - component: f7-row
+                        config:
+                          tag: animate
+                          attributeName: height
+                          values: "=(0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)) + '; 76'"
+                          dur: 1.5s
+                          repeatCount: indefinite
+                      - component: f7-row
+                        config:
+                          tag: animate
+                          attributeName: y
+                          values: "=(88 - (0.76 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0))) + '; 12'"
+                          dur: 1.5s
+                          repeatCount: indefinite
+                      - component: f7-row
+                        config:
+                          tag: animate
+                          attributeName: opacity
+                          values: "0.8; 0"
+                          dur: 1.5s
+                          repeatCount: indefinite
+
+                # lightning bolt indicator
+                - component: f7-row
+                  config:
+                    tag: path
+                    d: M53,35 L40,52 H52 L47,65 L60,47 H48 Z
+                    fill: "#ffcc00"
+                    stroke: "#ffcc00"
+                    stroke-width: 1
+                    visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
 
           # battery SOC text
           - component: Label
             config:
-              text: "=props.itemBatterySOC ? (items[props.itemBatterySOC].displayState || items[props.itemBatterySOC].state) : '0%'"
+              text: "=props.itemBatterySOC ? (items[props.itemBatterySOC].displayState || items[props.itemBatterySOC].state) + ' %' : '0%'"
               style:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
                 text-align: center
-                left: 255px
-                top: 280px
+                left: 215px
+                top: 275px
                 width: 50px
 
           # battery voltage text
