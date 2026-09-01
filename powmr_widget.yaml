@@ -128,6 +128,7 @@ config:
     aspect-ratio: 550 / 400
     margin: 0
     overflow: hidden
+    container-type: inline-size
     background-color: '=(themeOptions.dark === "dark") ? "#262626" : "#ffffff"'
     color: '=(themeOptions.dark === "dark") ? "#ffffff" : "#333333"'
     
@@ -141,7 +142,7 @@ slots:
           left: 0
           width: 550px
           height: 400px
-          transform: scale(calc(100cqi / 550))
+          transform: scale(calc(100cqi / 550px))
           transform-origin: top left
       slots:
         default:
