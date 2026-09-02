@@ -144,8 +144,6 @@ config:
     width: 100%
     max-width: 580px
     aspect-ratio: 550 / 400
-    margin: 0
-    padding: 0
     overflow: hidden
     container-type: inline-size
     background-color: '=(themeOptions.dark === "dark") ? "#262626" : "#ffffff"'
