@@ -964,3 +964,60 @@ slots:
                           stroke-width: 3
                           stroke-linecap: round
                           stroke-linejoin: round
+
+          # clickable zones
+          # grid voltage chart
+          - component: oh-link
+            config:
+              action: analyzer
+              actionAnalyzerItems: =[props.itemGridVoltage]
+              style:
+                position: absolute
+                left: 10px
+                top: 20px
+                width: 90px
+                height: 110px
+                z-index: 999
+                cursor: pointer
+
+          # pv power chart
+          - component: oh-link
+            config:
+              action: analyzer
+              actionAnalyzerItems: =[props.itemPVPower]
+              style:
+                position: absolute
+                left: 10px
+                top: 150px
+                width: 100px
+                height: 250px
+                z-index: 999
+                cursor: pointer
+
+          # battery soc chart
+          - component: oh-link
+            config:
+              action: analyzer
+              actionAnalyzerItems: =[props.itemBatterySOC]
+              style:
+                position: absolute
+                left: 200px
+                top: 210px
+                width: 150px
+                height: 160px
+                z-index: 999
+                cursor: pointer
+
+          # load power chart
+          - component: oh-link
+            config:
+              action: analyzer
+              actionAnalyzerItems: =[props.itemLoadPower]
+              style:
+                position: absolute
+                left: 440px
+                top: 240px
+                width: 100px
+                height: 130px
+                z-index: 999
+                cursor: pointer
