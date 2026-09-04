@@ -796,6 +796,7 @@ slots:
                 width: 500px
                 height: 150px
                 pointer-events: none
+                overflow: visible
             slots:
               default:
 
