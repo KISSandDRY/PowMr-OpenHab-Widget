@@ -451,7 +451,7 @@ slots:
                 top: 140px
                 width: 500px
                 height: 150px
-                background-color: '=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : "#2196f3"'
+                background-color: '=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M0 55 L40 55 L40 55 L40 55" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M65 46 L70 51 L75 46" transform="rotate(270 60 65)" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -519,7 +519,7 @@ slots:
                 top: 140px
                 width: 500px
                 height: 150px
-                background-color: '=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : "#ffcc00"'
+                background-color: '=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M0 140 L75 140 L75 102 L75 90" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M60 110 L65 115 L70 110" transform="rotate(180 70 100)" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -875,7 +875,7 @@ slots:
                   config:
                     tag: circle
                     r: 4
-                    fill: "=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : '#2196f3'"
+                    fill: "=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
                     visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
                   slots:
                     default:
@@ -983,7 +983,7 @@ slots:
                   config:
                     tag: circle
                     r: 4
-                    fill: "=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : '#ffcc00'"
+                    fill: "=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
                     visible: "=props.itemPVPower && Number.parseFloat(items[props.itemPVPower].state) > 5"
                   slots:
                     default:
