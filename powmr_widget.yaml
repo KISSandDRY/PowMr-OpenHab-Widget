@@ -424,108 +424,6 @@ slots:
                 width: 50px
                 opacity: "=props.loadEnabled && props.itemGridActive && items[props.loadEnabled].state === 'ON' && items[props.itemGridActive].state === 'ON' ? '1' : '0'"
 
-          # BYPASS arrow
-          - component: f7-block
-            config:
-              class: smooth-fade
-              style:
-                position: absolute
-                left: 100px
-                top: 140px
-                width: 500px
-                height: 150px
-                background-color: '=props.bypassFlowColor ? props.bypassFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M0 10 L0 10 L405 10 L405 95" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M400 100 L405 105 L410 100" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
-                -webkit-mask-repeat: no-repeat
-                -webkit-mask-position: center
-                -webkit-mask-size: contain
-                opacity: "=props.loadEnabled && props.itemGridActive && items[props.loadEnabled].state === 'ON' && items[props.itemGridActive].state === 'ON' ? '1' : '0'"
-
-          # grid to ac2dc arrow
-          - component: f7-block
-            config:
-              class: smooth-fade
-              style:
-                position: absolute
-                left: 100px
-                top: 140px
-                width: 500px
-                height: 150px
-                background-color: '=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M0 55 L40 55 L40 55 L40 55" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M65 46 L70 51 L75 46" transform="rotate(270 60 65)" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
-                -webkit-mask-repeat: no-repeat
-                -webkit-mask-position: center
-                -webkit-mask-size: contain
-                opacity: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0 ? '1' : '0'"
-
-          # ac2dc to battery arrow
-          - component: f7-block
-            config:
-              class: smooth-fade
-              style:
-                position: absolute
-                left: 100px
-                top: 140px
-                width: 500px
-                height: 150px
-                background-color: '=props.ac2dctobatteryFlowColor ? props.ac2dctobatteryFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M105 55 L170 55 L170 55 L170 98" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M165 100 L170 105 L175 100" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
-                -webkit-mask-repeat: no-repeat
-                -webkit-mask-position: center
-                -webkit-mask-size: contain
-                opacity: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0 ? '1' : '0'"
-
-          # dc2ac to house arrow
-          - component: f7-block
-            config:
-              class: smooth-fade
-              style:
-                position: absolute
-                left: 100px
-                top: 140px
-                width: 500px
-                height: 150px
-                background-color: '=props.dc2actohouseFlowColor ? props.dc2actohouseFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M315 55 L330 55 L385 55 L385 95" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M380 100 L385 105 L390 100" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
-                -webkit-mask-repeat: no-repeat
-                -webkit-mask-position: center
-                -webkit-mask-size: contain
-                opacity: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON' ? '1' : '0'"
-
-          # battery to dc2ac arrow
-          - component: f7-block
-            config:
-              class: smooth-fade
-              style:
-                position: absolute
-                left: 100px
-                top: 140px
-                width: 500px
-                height: 150px
-                background-color: '=props.batterytodc2acFlowColor ? props.batterytodc2acFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M190 98 L190 55 L190 55 L250 55" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M250 70 L255 75 L260 70" transform="rotate(270 245 65)" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
-                -webkit-mask-repeat: no-repeat
-                -webkit-mask-position: center
-                -webkit-mask-size: contain
-                opacity: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON' ? '1' : '0'"
-
-          # solar to ac2dc arrow
-          - component: f7-block
-            config:
-              class: smooth-fade
-              style:
-                position: absolute
-                left: 100px
-                top: 140px
-                width: 500px
-                height: 150px
-                background-color: '=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M0 140 L75 140 L75 102 L75 90" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M60 110 L65 115 L70 110" transform="rotate(180 70 100)" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
-                -webkit-mask-repeat: no-repeat
-                -webkit-mask-position: center
-                -webkit-mask-size: contain
-                opacity: "=props.itemPVPower ? (Number.parseFloat(items[props.itemPVPower].state) > 5 ? '1' : '0') : '1'"
-
           # ac2dc icon
           - component: f7-block
             config:
@@ -811,7 +709,7 @@ slots:
                 -webkit-mask-size: contain
                 opacity: "=props.buzzerStatusItem && items[props.buzzerStatusItem].state === 'OFF' ? '1' : '0'"
 
-          # animation
+          # flows animation
           - component: f7-row
             config:
               tag: svg
@@ -825,182 +723,225 @@ slots:
                 pointer-events: none
             slots:
               default:
-                - component: f7-row
-                  config:
-                    tag: defs
-                  slots:
-                    default:
-                      - component: f7-row
-                        config: { tag: path, id: p-bypass, d: "M0 10 L405 10 L405 95" }
-                      - component: f7-row
-                        config: { tag: path, id: p-grid2ac, d: "M0 55 L40 55" }
-                      - component: f7-row
-                        config: { tag: path, id: p-ac2batt, d: "M105 55 L170 55 L170 98" }
-                      - component: f7-row
-                        config: { tag: path, id: p-batt2dc, d: "M190 98 L190 55 L250 55" }
-                      - component: f7-row
-                        config: { tag: path, id: p-dc2house, d: "M315 55 L385 55 L385 95" }
-                      - component: f7-row
-                        config: { tag: path, id: p-sol2ac, d: "M0 140 L75 140 L75 90" }
 
-                # animated dot: bypass
+                # bypass flow
                 - component: f7-row
                   config:
-                    tag: circle
-                    r: 4
-                    fill: "=props.bypassFlowColor ? props.bypassFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
-                    visible: "=props.loadEnabled && props.itemGridActive && items[props.loadEnabled].state === 'ON' && items[props.itemGridActive].state === 'ON'"
+                    tag: g
+                    class: smooth-fade
+                    opacity: "=props.loadEnabled && props.itemGridActive && items[props.loadEnabled].state === 'ON' && items[props.itemGridActive].state === 'ON' ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
                         config:
-                          tag: animateMotion
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+                          tag: path
+                          d: M0 10 L405 10 L405 105
+                          fill: none
+                          stroke: "=props.bypassFlowColor ? props.bypassFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
+                          stroke-dasharray: 10 6
                         slots:
                           default:
                             - component: f7-row
-                              config: { tag: mpath, "xlink:href": "#p-bypass" }
+                              config:
+                                tag: animate
+                                attributeName: stroke-dashoffset
+                                values: 16;0
+                                repeatCount: indefinite
+                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
                       - component: f7-row
                         config:
-                          tag: animate
-                          attributeName: opacity
-                          values: "0;1;1;0"
-                          keyTimes: "0;0.1;0.9;1"
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+                          tag: path
+                          d: M400 100 L405 105 L410 100
+                          fill: none
+                          stroke: "=props.bypassFlowColor ? props.bypassFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
 
-                # animated dot: grid to ac2dc
+                # grid to ac2dc flow
                 - component: f7-row
                   config:
-                    tag: circle
-                    r: 4
-                    fill: "=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
-                    visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
+                    tag: g
+                    class: smooth-fade
+                    opacity: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0 ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
                         config:
-                          tag: animateMotion
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+                          tag: path
+                          d: M0 55 L40 55
+                          fill: none
+                          stroke: "=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
+                          stroke-dasharray: 10 6
                         slots:
                           default:
                             - component: f7-row
-                              config: { tag: mpath, "xlink:href": "#p-grid2ac" }
+                              config:
+                                tag: animate
+                                attributeName: stroke-dashoffset
+                                values: 16;0
+                                repeatCount: indefinite
+                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
                       - component: f7-row
                         config:
-                          tag: animate
-                          attributeName: opacity
-                          values: "0;1;1;0"
-                          keyTimes: "0;0.1;0.9;1"
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+                          tag: path
+                          d: M35 50 L40 55 L35 60
+                          fill: none
+                          stroke: "=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
 
-                # animated dot: ac2dc to battery
+                # ac2dc to battery flow
                 - component: f7-row
                   config:
-                    tag: circle
-                    r: 4
-                    fill: "=props.ac2dctobatteryFlowColor ? props.ac2dctobatteryFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
-                    visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
+                    tag: g
+                    class: smooth-fade
+                    opacity: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0 ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
                         config:
-                          tag: animateMotion
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+                          tag: path
+                          d: M105 55 L170 55 L170 105
+                          fill: none
+                          stroke: "=props.ac2dctobatteryFlowColor ? props.ac2dctobatteryFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
+                          stroke-dasharray: 10 6
                         slots:
                           default:
                             - component: f7-row
-                              config: { tag: mpath, "xlink:href": "#p-ac2batt" }
+                              config:
+                                tag: animate
+                                attributeName: stroke-dashoffset
+                                values: 16;0
+                                repeatCount: indefinite
+                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
                       - component: f7-row
                         config:
-                          tag: animate
-                          attributeName: opacity
-                          values: "0;1;1;0"
-                          keyTimes: "0;0.1;0.9;1"
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+                          tag: path
+                          d: M165 100 L170 105 L175 100
+                          fill: none
+                          stroke: "=props.ac2dctobatteryFlowColor ? props.ac2dctobatteryFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
 
-                # animated dot: battery to dc2ac
+                # battery to dc2ac flow
                 - component: f7-row
                   config:
-                    tag: circle
-                    r: 4
-                    fill: "=props.batterytodc2acFlowColor ? props.batterytodc2acFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
-                    visible: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON'"
+                    tag: g
+                    class: smooth-fade
+                    opacity: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON' ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
                         config:
-                          tag: animateMotion
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) || 1))) + 's'"
+                          tag: path
+                          d: M190 100 L190 55 L250 55
+                          fill: none
+                          stroke: "=props.batterytodc2acFlowColor ? props.batterytodc2acFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
+                          stroke-dasharray: 10 6
                         slots:
                           default:
                             - component: f7-row
-                              config: { tag: mpath, "xlink:href": "#p-batt2dc" }
+                              config:
+                                tag: animate
+                                attributeName: stroke-dashoffset
+                                values: 16;0
+                                repeatCount: indefinite
+                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) || 1))) + 's'"
                       - component: f7-row
                         config:
-                          tag: animate
-                          attributeName: opacity
-                          values: "0;1;1;0"
-                          keyTimes: "0;0.1;0.9;1"
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) || 1))) + 's'"
+                          tag: path
+                          d: M245 50 L250 55 L245 60
+                          fill: none
+                          stroke: "=props.batterytodc2acFlowColor ? props.batterytodc2acFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
 
-                # animated dot: dc2ac to house
+                # dc2ac to house flow
                 - component: f7-row
                   config:
-                    tag: circle
-                    r: 4
-                    fill: "=props.dc2actohouseFlowColor ? props.dc2actohouseFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
-                    visible: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON'"
+                    tag: g
+                    class: smooth-fade
+                    opacity: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON' ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
                         config:
-                          tag: animateMotion
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+                          tag: path
+                          d: M315 55 L385 55 L385 105
+                          fill: none
+                          stroke: "=props.dc2actohouseFlowColor ? props.dc2actohouseFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
+                          stroke-dasharray: 10 6
                         slots:
                           default:
                             - component: f7-row
-                              config: { tag: mpath, "xlink:href": "#p-dc2house" }
+                              config:
+                                tag: animate
+                                attributeName: stroke-dashoffset
+                                values: 16;0
+                                repeatCount: indefinite
+                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
                       - component: f7-row
                         config:
-                          tag: animate
-                          attributeName: opacity
-                          values: "0;1;1;0"
-                          keyTimes: "0;0.1;0.9;1"
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+                          tag: path
+                          d: M380 100 L385 105 L390 100
+                          fill: none
+                          stroke: "=props.dc2actohouseFlowColor ? props.dc2actohouseFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
 
-                # animated dot: solar to ac2dc
+                # solar to ac2dc flow
                 - component: f7-row
                   config:
-                    tag: circle
-                    r: 4
-                    fill: "=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
-                    visible: "=props.itemPVPower && Number.parseFloat(items[props.itemPVPower].state) > 5"
+                    tag: g
+                    class: smooth-fade
+                    opacity: "=props.itemPVPower && Number.parseFloat(items[props.itemPVPower].state) > 5 ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
                         config:
-                          tag: animateMotion
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemPVPower].state) || 1))) + 's'"
+                          tag: path
+                          d: M0 140 L75 140 L75 90
+                          fill: none
+                          stroke: "=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
+                          stroke-dasharray: 10 6
                         slots:
                           default:
                             - component: f7-row
-                              config: { tag: mpath, "xlink:href": "#p-sol2ac" }
+                              config:
+                                tag: animate
+                                attributeName: stroke-dashoffset
+                                values: 16;0
+                                repeatCount: indefinite
+                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemPVPower].state) || 1))) + 's'"
                       - component: f7-row
                         config:
-                          tag: animate
-                          attributeName: opacity
-                          values: "0;1;1;0"
-                          keyTimes: "0;0.1;0.9;1"
-                          repeatCount: indefinite
-                          dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemPVPower].state) || 1))) + 's'"
+                          tag: path
+                          d: M70 95 L75 90 L80 95
+                          fill: none
+                          stroke: "=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                          stroke-width: 3
+                          stroke-linecap: round
+                          stroke-linejoin: round
