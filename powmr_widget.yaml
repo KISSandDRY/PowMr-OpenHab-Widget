@@ -1071,9 +1071,9 @@ slots:
               actionAnalyzerItems: =[props.itemLoadPower]
               style:
                 position: absolute
-                left: 440px
+                left: 460px
                 top: 240px
-                width: 100px
+                width: 80px
                 height: 130px
                 z-index: 999
                 cursor: pointer
