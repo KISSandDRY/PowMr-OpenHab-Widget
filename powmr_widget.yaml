@@ -131,6 +131,7 @@ props:
       required: false
       type: TEXT
 
+    # main colors
     - context: color
       description: Main Background Color
       label: Background Color
@@ -145,24 +146,96 @@ props:
       required: false
       type: TEXT
 
-    - context: color
-      description: Icon Color (Grid, Solar, House, etc)
-      label: Icon Color
-      name: iconColor
-      required: false
-      type: TEXT
-
-    - context: color
-      description: Flow Color (Arrows and Dots)
-      label: Flow Color
-      name: flowColor
-      required: false
-      type: TEXT
-
+    # svg icons colors
     - context: color
       description: Battery Icon Color
       label: Battery Color
-      name: batteryColor
+      name: batteryIconColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: Grid Icon Color
+      label: Grid Color
+      name: gridIconColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: Solar Icon Color
+      label: Solar Color
+      name: solarIconColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: AC2DC Icon Color
+      label: AC2DC Color
+      name: ac2dcIconColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: DC2AC Icon Color
+      label: DC2AC Color
+      name: dc2acIconColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: House Icon Color
+      label: House Color
+      name: houseIconColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: Buzzer Icon Color
+      label: Buzzer Color
+      name: buzzerIconColor
+      required: false
+      type: TEXT
+
+    # flow colors
+    - context: color
+      description: Bypass Flow Color
+      label: Bypass Color
+      name: bypassFlowColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: GridToAC2DC Flow Color
+      label: GridToAC2DC Color
+      name: gridtoac2dcFlowColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: AC2DCToBattery Flow Color
+      label: AC2DCToBattery Color
+      name: ac2dctobatteryFlowColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: BatteryToDC2AC Flow Color
+      label: BatteryToDC2AC Color
+      name: batterytodc2acFlowColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: DC2ACToHouse Flow Color
+      label: DC2ACToHouse Color
+      name: dc2actohouseFlowColor
+      required: false
+      type: TEXT
+
+    - context: color
+      description: SolarToAC2DC Flow Color
+      label: SolarToAC2DC Color
+      name: solartoac2dcFlowColor
       required: false
       type: TEXT
 
@@ -186,6 +259,7 @@ config:
 
 slots:
   default:
+
     # online status text
     - component: Label
       config:
@@ -210,6 +284,7 @@ slots:
           box-shadow: 0px 2px 4px rgba(0,0,0,0.2)
           z-index: 100
 
+    # main wrapper
     - component: f7-block
       config:
         style:
@@ -222,6 +297,7 @@ slots:
           transform-origin: top left
           margin: 0
           padding: 0
+
       slots:
         default:
           # grid tower icon
@@ -234,7 +310,7 @@ slots:
                 top: 13px
                 width: 100px
                 height: 300px
-                background-color: '=props.iconColor ? props.iconColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.gridIconColor ? props.gridIconColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 470 470" xml:space="preserve"> <path d="M420.635,169.421c-0.002-0.025-0.003-0.05-0.006-0.074c-0.076-0.725-0.255-1.416-0.523-2.065 c-0.015-0.037-0.029-0.073-0.045-0.109c-0.269-0.623-0.617-1.198-1.037-1.72c-0.047-0.059-0.095-0.117-0.144-0.174 c-0.252-0.295-0.525-0.57-0.82-0.823c-0.044-0.038-0.084-0.079-0.129-0.116c-0.142-0.116-0.29-0.223-0.44-0.329 c-0.116-0.082-0.234-0.158-0.355-0.233c-0.181-0.113-0.364-0.219-0.555-0.316c-0.198-0.102-0.4-0.196-0.607-0.279 c-0.061-0.024-0.117-0.059-0.178-0.082l-121.154-52.115V69.211h111.028v31.49c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V62.108 c0.007-0.132,0.02-0.263,0.02-0.397c0-0.243-0.033-0.476-0.056-0.713c-0.002-0.025-0.003-0.05-0.006-0.074 c-0.076-0.725-0.255-1.416-0.523-2.065c-0.015-0.037-0.029-0.073-0.045-0.109c-0.269-0.623-0.617-1.198-1.037-1.72 c-0.047-0.059-0.095-0.117-0.144-0.174c-0.252-0.295-0.525-0.57-0.82-0.823c-0.044-0.038-0.084-0.079-0.129-0.116 c-0.142-0.116-0.29-0.223-0.44-0.329c-0.116-0.082-0.234-0.158-0.355-0.233c-0.181-0.113-0.364-0.219-0.555-0.316 c-0.198-0.102-0.4-0.196-0.607-0.279c-0.061-0.024-0.117-0.059-0.178-0.082L290.107,0.61C289.195,0.219,288.195,0,287.143,0H182.837 c-1.052,0-2.052,0.219-2.961,0.609C179.873,0.61,53.92,54.79,53.92,54.79c-0.023,0.01-0.046,0.02-0.069,0.03 c-0.083,0.036-0.156,0.076-0.232,0.112c-0.198,0.094-0.391,0.194-0.58,0.304c-0.131,0.076-0.262,0.152-0.387,0.235 c-0.065,0.043-0.125,0.091-0.189,0.136c-0.127,0.09-0.252,0.181-0.372,0.278c-0.06,0.049-0.118,0.101-0.177,0.152 c-0.116,0.1-0.229,0.201-0.338,0.308c-0.059,0.057-0.115,0.116-0.171,0.175c-0.101,0.105-0.199,0.212-0.293,0.323 c-0.058,0.067-0.114,0.136-0.169,0.205c-0.085,0.107-0.166,0.216-0.245,0.327c-0.056,0.078-0.111,0.156-0.164,0.236 c-0.07,0.108-0.135,0.219-0.2,0.329c-0.051,0.088-0.104,0.174-0.152,0.264c-0.061,0.116-0.115,0.235-0.171,0.354 c-0.061,0.132-0.12,0.265-0.174,0.4c-0.062,0.156-0.122,0.312-0.173,0.472c-0.029,0.091-0.052,0.185-0.077,0.278 c-0.037,0.132-0.073,0.265-0.103,0.399c-0.02,0.091-0.035,0.183-0.052,0.275c-0.026,0.145-0.049,0.29-0.067,0.437 c-0.01,0.085-0.019,0.17-0.026,0.256c-0.014,0.162-0.021,0.324-0.025,0.487c-0.001,0.051-0.008,0.1-0.008,0.15v38.99 c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-31.49h111.028v41.773L53.92,163.212c-0.023,0.01-0.046,0.02-0.069,0.03 c-0.083,0.036-0.156,0.076-0.232,0.112c-0.198,0.094-0.391,0.194-0.58,0.304c-0.131,0.076-0.262,0.152-0.387,0.235 c-0.065,0.043-0.125,0.091-0.189,0.136c-0.127,0.09-0.252,0.181-0.372,0.278c-0.06,0.049-0.118,0.101-0.177,0.152 c-0.116,0.1-0.229,0.201-0.338,0.308c-0.059,0.057-0.115,0.116-0.171,0.175c-0.101,0.105-0.199,0.212-0.293,0.323 c-0.058,0.067-0.114,0.136-0.169,0.205c-0.085,0.107-0.166,0.216-0.245,0.327c-0.056,0.078-0.111,0.156-0.164,0.236 c-0.07,0.108-0.135,0.219-0.2,0.329c-0.051,0.088-0.104,0.174-0.152,0.264c-0.061,0.116-0.115,0.235-0.171,0.354 c-0.061,0.132-0.12,0.265-0.174,0.4c-0.062,0.156-0.122,0.312-0.173,0.472c-0.029,0.091-0.052,0.185-0.077,0.278 c-0.037,0.132-0.073,0.265-0.103,0.399c-0.02,0.091-0.035,0.183-0.052,0.275c-0.026,0.145-0.049,0.29-0.067,0.437 c-0.01,0.085-0.019,0.17-0.026,0.256c-0.014,0.162-0.021,0.324-0.025,0.487c-0.001,0.051-0.008,0.1-0.008,0.15v38.99 c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-31.49h108.317L84.023,460.256c-0.008,0.026-0.01,0.053-0.018,0.079 c-0.107,0.357-0.19,0.721-0.243,1.088c-0.004,0.028-0.011,0.055-0.015,0.083c-0.048,0.359-0.062,0.721-0.058,1.083 c0.001,0.072,0,0.143,0.003,0.215c0.014,0.351,0.053,0.7,0.116,1.047c0.011,0.06,0.025,0.118,0.037,0.178 c0.148,0.715,0.403,1.412,0.763,2.07c0.028,0.051,0.054,0.101,0.083,0.151c0.178,0.307,0.378,0.604,0.603,0.89 c0.042,0.053,0.088,0.103,0.131,0.155c0.092,0.111,0.18,0.224,0.279,0.33c0.126,0.135,0.262,0.257,0.396,0.38 c0.041,0.038,0.078,0.078,0.12,0.115c0.285,0.252,0.587,0.475,0.899,0.676c0.025,0.016,0.045,0.037,0.07,0.053 c0.034,0.021,0.07,0.035,0.104,0.055c0.248,0.15,0.501,0.287,0.761,0.406c0.038,0.018,0.075,0.039,0.114,0.056 c0.294,0.128,0.593,0.236,0.898,0.326c0.069,0.02,0.139,0.035,0.209,0.053c0.237,0.062,0.477,0.113,0.718,0.151 c0.088,0.014,0.176,0.029,0.264,0.04c0.302,0.037,0.606,0.063,0.911,0.063c1.621,0,3.233-0.514,4.581-1.552 c0.191-0.147,0.376-0.304,0.555-0.471l213.663-199.963l53.151,169.539l-101.056-94.576c-3.025-2.83-7.771-2.673-10.601,0.351 s-2.673,7.771,0.351,10.601l121.862,114.047c1.428,1.336,3.271,2.024,5.127,2.024c1.377,0,2.761-0.378,3.989-1.15 c2.884-1.813,4.185-5.342,3.166-8.593l-88.602-282.622h108.317v31.49c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-38.594 c0.007-0.132,0.02-0.263,0.02-0.397C420.691,169.892,420.658,169.658,420.635,169.421z M190.337,162.634v-39.211h89.307v39.211 H190.337z M294.643,54.211V18.891l82.112,35.321H294.643z M190.337,15h89.307v39.211h-89.307V15z M93.225,54.211l82.112-35.321 v35.321H93.225z M279.643,69.211v39.211h-89.307V69.211H279.643z M175.337,127.313v35.321H93.225L175.337,127.313z M160.012,268.013 l64.002,59.898l-117.152,109.64L160.012,268.013z M304.989,252.129l-69.999,65.51l-69.998-65.51l23.354-74.495h93.289 L304.989,252.129z M294.643,162.634v-35.321l82.112,35.321H294.643z"/></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -281,7 +357,7 @@ slots:
                 top: 138px
                 width: 120px
                 height: 290px
-                background-color: '=props.iconColor ? props.iconColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.solarIconColor ? props.solarIconColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" viewBox="0 0 100 125"><g transform="translate(0,-952.36218)"><path style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;opacity:1;color:black;fill:black;fill-opacity:1;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" d="M 24.4375 46.34375 A 1.0001 1.0001 0 0 0 23.65625 47.09375 L 16.03125 79 A 1.0001 1.0001 0 0 0 17 80.21875 L 83 80.21875 A 1.0001 1.0001 0 0 0 83.96875 79 L 76.3125 47.09375 A 1.0001 1.0001 0 0 0 75.34375 46.34375 L 24.65625 46.34375 A 1.0001 1.0001 0 0 0 24.4375 46.34375 z M 25.4375 48.34375 L 40.5 48.34375 L 39.90625 55.875 L 32.34375 55.875 L 32.8125 53 A 1.0001 1.0001 0 0 0 31.65625 51.8125 A 1.0001 1.0001 0 0 0 30.8125 52.65625 L 30.28125 55.875 L 23.625 55.875 L 25.4375 48.34375 z M 42.46875 48.34375 L 49.40625 48.34375 L 49.40625 55.875 L 41.875 55.875 L 42.46875 48.34375 z M 51.40625 48.34375 L 57.53125 48.34375 L 58.125 55.875 L 51.40625 55.875 L 51.40625 48.34375 z M 59.5 48.34375 L 74.53125 48.34375 L 78.84375 66.21875 L 71.40625 66.21875 L 69.1875 52.65625 A 1.0001 1.0001 0 0 0 68 51.8125 A 1.0001 1.0001 0 0 0 67.1875 53 L 67.65625 55.875 L 60.09375 55.875 L 59.5 48.34375 z M 23.15625 57.875 L 29.96875 57.875 L 26.65625 78.21875 L 18.28125 78.21875 L 23.15625 57.875 z M 32 57.875 L 39.75 57.875 L 39.09375 66.21875 L 30.65625 66.21875 L 32 57.875 z M 41.71875 57.875 L 49.40625 57.875 L 49.40625 66.21875 L 41.0625 66.21875 L 41.71875 57.875 z M 51.40625 57.875 L 58.28125 57.875 L 58.9375 66.21875 L 51.40625 66.21875 L 51.40625 57.875 z M 60.25 57.875 L 67.96875 57.875 L 69.34375 66.21875 L 60.90625 66.21875 L 60.25 57.875 z M 30.3125 68.21875 L 38.9375 68.21875 L 38.53125 73.375 A 1.0001 1.0001 0 1 0 40.5 73.53125 L 40.90625 68.21875 L 49.40625 68.21875 L 49.40625 78.21875 L 28.6875 78.21875 L 30.3125 68.21875 z M 51.40625 68.21875 L 59.09375 68.21875 L 59.5 73.53125 A 1.0001 1.0001 0 1 0 61.46875 73.375 L 61.0625 68.21875 L 69.6875 68.21875 L 71.3125 78.21875 L 51.40625 78.21875 L 51.40625 68.21875 z M 71.71875 68.21875 L 79.3125 68.21875 L 81.71875 78.21875 L 73.34375 78.21875 L 71.71875 68.21875 z M 44.5625 83.65625 A 1.0001 1.0001 0 0 0 43.6875 84.6875 L 43.6875 91 L 39.4375 91 A 1.0001 1.0001 0 0 0 39.21875 91 A 1.0059637 1.0059637 0 1 0 39.4375 93 L 60.59375 93 A 1.0001 1.0001 0 1 0 60.59375 91 L 56.3125 91 L 56.3125 84.6875 A 1.0001 1.0001 0 0 0 55.21875 83.65625 A 1.0001 1.0001 0 0 0 54.3125 84.6875 L 54.3125 91 L 45.6875 91 L 45.6875 84.6875 A 1.0001 1.0001 0 0 0 44.5625 83.65625 z " transform="translate(0,952.36218)"/></g></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -358,7 +434,7 @@ slots:
                 top: 140px
                 width: 500px
                 height: 150px
-                background-color: '=props.flowColor ? props.flowColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.bypassFlowColor ? props.bypassFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M0 10 L0 10 L405 10 L405 95" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M400 100 L405 105 L410 100" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -375,7 +451,7 @@ slots:
                 top: 140px
                 width: 500px
                 height: 150px
-                background-color: '=props.flowColor ? props.flowColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : "#2196f3"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M0 55 L40 55 L40 55 L40 55" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M65 46 L70 51 L75 46" transform="rotate(270 60 65)" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -392,7 +468,7 @@ slots:
                 top: 140px
                 width: 500px
                 height: 150px
-                background-color: '=props.flowColor ? props.flowColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.ac2dctobatteryFlowColor ? props.ac2dctobatteryFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M105 55 L170 55 L170 55 L170 98" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M165 100 L170 105 L175 100" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -409,7 +485,7 @@ slots:
                 top: 140px
                 width: 500px
                 height: 150px
-                background-color: '=props.flowColor ? props.flowColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.dc2actohouseFlowColor ? props.dc2actohouseFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M315 55 L330 55 L385 55 L385 95" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M380 100 L385 105 L390 100" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -426,7 +502,7 @@ slots:
                 top: 140px
                 width: 500px
                 height: 150px
-                background-color: '=props.flowColor ? props.flowColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.batterytodc2acFlowColor ? props.batterytodc2acFlowColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M190 98 L190 55 L190 55 L250 55" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M250 70 L255 75 L260 70" transform="rotate(270 245 65)" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -443,7 +519,7 @@ slots:
                 top: 140px
                 width: 500px
                 height: 150px
-                background-color: '=props.flowColor ? props.flowColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : "#ffcc00"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"><path d="M0 140 L75 140 L75 102 L75 90" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke-dasharray="10 6"/><path d="M60 110 L65 115 L70 110" transform="rotate(180 70 100)" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -460,8 +536,8 @@ slots:
                 top: 170px
                 width: 50px
                 height: 50px
-                background-color: '=props.iconColor ? props.iconColor : (themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg viewBox="0 0 55.826275 55.89579" version="1.1" id="svg1" xml:space="preserve" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview id="namedview1" pagecolor="%23505050" bordercolor="%23eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="%23505050" inkscape:document-units="mm"><inkscape:page x="0" y="0" width="55.826275" height="55.89579" id="page2" margin="0" bleed="0" /></sodipodi:namedview><defs id="defs1"><linearGradient id="swatch1" inkscape:swatch="solid"><stop style="stop-color:%23ffffff;stop-opacity:1;" offset="0" id="stop1" /></linearGradient></defs><g inkscape:groupmode="layer" id="layer3" inkscape:label="Layer 1" transform="translate(-70.606408,-89.32868)"><rect style="fill:none;stroke:white;stroke-width:3.082;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect1" width="52.744278" height="52.813789" x="72.147408" y="90.869682" ry="9.8395472" /><path style="fill:none;stroke:white;stroke-width:3.082;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 81.287678,135.36412 116.13643,99.401875" id="path1" /><path style="fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 80.329415,102.50872 c 0,0 3.010394,-6.506695 5.968251,-0.069 2.433034,5.29538 5.323033,-0.0806 5.323033,-0.0806" id="path2" sodipodi:nodetypes="csc" /><path style="opacity:1;fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 105.28855,129.68268 H 116.5011" id="path3" /><path style="opacity:1;fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 105.28855,135.21348 h 1.09252" id="path4" sodipodi:nodetypes="cc" /><path style="opacity:1;fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 110.22963,135.21348 h 1.09252" id="path4-3" sodipodi:nodetypes="cc" /><path style="opacity:1;fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 115.17071,135.21348 h 1.09252" id="path4-6" sodipodi:nodetypes="cc" /></g></svg>')
+                background-color: '=props.ac2dcIconColor ? props.ac2dcIconColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                -webkit-mask-image: url('data:image/svg+xml, <svg viewBox="0 0 55.8 55.9" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-70.6,-89.3)"><rect fill="none" stroke="white" stroke-width="3" stroke-linecap="round" x="72.1" y="90.9" width="52.7" height="52.8" rx="11.6"/><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="M 81.3,135.4 116.1,99.4"/><path pathLength="100" stroke-dasharray="100" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="m 80.3,102.5 c 0,0 3,-6.5 6,-0.1 2.4,5.3 5.3,-0.1 5.3,-0.1"><animate attributeName="stroke-dashoffset" values="100;0;-100" dur="1.5s" repeatCount="indefinite"/></path><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="M 105.3,129.7 H 116.5"/><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="m 105.3,135.2 h 1.1"><animate attributeName="opacity" values="0;1;1;1;0;0;0" keyTimes="0;0.166;0.333;0.5;0.666;0.833;1" dur="1.5s" repeatCount="indefinite"/></path><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="m 110.2,135.2 h 1.1"><animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.166;0.333;0.5;0.666;0.833;1" dur="1.5s" repeatCount="indefinite"/></path><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="m 115.2,135.2 h 1.1"><animate attributeName="opacity" values="0;0;0;1;1;1;0" keyTimes="0;0.166;0.333;0.5;0.666;0.833;1" dur="1.5s" repeatCount="indefinite"/></path></g></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
                 -webkit-mask-size: contain
@@ -489,7 +565,7 @@ slots:
                     width: 20
                     height: 8
                     rx: 2
-                    fill: '=props.batteryColor ? props.batteryColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                    fill: '=props.batteryIconColor ? props.batteryIconColor : (themeOptions.dark === "dark") ? "white" : "black"'
 
                 # outer shell
                 - component: f7-row
@@ -501,7 +577,7 @@ slots:
                     height: 80
                     rx: 5
                     fill: none
-                    stroke: '=props.batteryColor ? props.batteryColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                    stroke: '=props.batteryIconColor ? props.batteryIconColor : (themeOptions.dark === "dark") ? "white" : "black"'
                     stroke-width: 4
 
                 # base fill - color based on SOC (Red < 20%, Yellow < 50%, Green >= 50%)
@@ -652,8 +728,8 @@ slots:
                 top: 170px
                 width: 50px
                 height: 50px
-                background-color: '=props.iconColor ? props.iconColor : (themeOptions.dark === "dark") ? "white" : "black"'
-                -webkit-mask-image: url('data:image/svg+xml, <svg viewBox="0 0 55.826275 55.89579" version="1.1" id="svg1" xml:space="preserve" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview id="namedview1" pagecolor="%23505050" bordercolor="%23eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="%23505050" inkscape:document-units="mm"><inkscape:page x="0" y="0" width="55.826275" height="55.89579" id="page2" margin="0" bleed="0" /></sodipodi:namedview><defs id="defs1"><linearGradient id="swatch1" inkscape:swatch="solid"><stop style="stop-color:%23ffffff;stop-opacity:1;" offset="0" id="stop1" /></linearGradient></defs><g inkscape:groupmode="layer" id="layer3" inkscape:label="Layer 1" transform="translate(-70.606408,-89.32868)"><rect style="fill:none;stroke:white;stroke-width:3.082;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect1" width="52.744278" height="52.813789" x="72.147408" y="90.869682" rx="11.642911" ry="11.780029" /><path style="fill:none;stroke:white;stroke-width:3.082;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 81.287678,135.36412 116.13643,99.401875" id="path1" /><path style="fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 105.33766,132.79143 c 0,0 3.01039,-6.50669 5.96825,-0.069 2.43303,5.29538 5.32303,-0.0806 5.32303,-0.0806" id="path2" sodipodi:nodetypes="csc" /><g id="g4-2" transform="translate(-24.797611,-30.490861)"><path style="opacity:1;fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 105.28855,129.68268 H 116.5011" id="path3-0" /><path style="opacity:1;fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 105.28855,135.21348 h 1.09252" id="path4-2" sodipodi:nodetypes="cc" /><path style="opacity:1;fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 110.22963,135.21348 h 1.09252" id="path4-3-3" sodipodi:nodetypes="cc" /><path style="opacity:1;fill:none;stroke:white;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 115.17071,135.21348 h 1.09252" id="path4-6-7" sodipodi:nodetypes="cc" /></g></g></svg>')
+                background-color: '=props.dc2acIconColor ? props.dc2acIconColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                -webkit-mask-image: url('data:image/svg+xml, <svg viewBox="0 0 55.8 55.9" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-70.6,-89.3)"><rect fill="none" stroke="white" stroke-width="3" stroke-linecap="round" x="72.1" y="90.9" width="52.7" height="52.8" rx="11.6"/><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="M 81.3,135.4 116.1,99.4"/><path pathLength="100" stroke-dasharray="100" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="m 105.3,132.8 c 0,0 3,-6.5 6,-0.1 2.4,5.3 5.3,-0.1 5.3,-0.1"><animate attributeName="stroke-dashoffset" values="100;0;-100" dur="1.5s" repeatCount="indefinite"/></path><g transform="translate(-24.8,-30.5)"><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="M 105.3,129.7 H 116.5"/><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="m 105.3,135.2 h 1.1"><animate attributeName="opacity" values="0;1;1;1;0;0;0" keyTimes="0;0.166;0.333;0.5;0.666;0.833;1" dur="1.5s" repeatCount="indefinite"/></path><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="m 110.2,135.2 h 1.1"><animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.166;0.333;0.5;0.666;0.833;1" dur="1.5s" repeatCount="indefinite"/></path><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" d="m 115.2,135.2 h 1.1"><animate attributeName="opacity" values="0;0;0;1;1;1;0" keyTimes="0;0.166;0.333;0.5;0.666;0.833;1" dur="1.5s" repeatCount="indefinite"/></path></g></g></svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
                 -webkit-mask-size: contain
@@ -668,7 +744,7 @@ slots:
                 top: 245px
                 width: 80px
                 height: 80px
-                background-color: '=props.iconColor ? props.iconColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.houseIconColor ? props.houseIconColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 opacity: 0.2
                 -webkit-mask-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><path d="M 24 2.9980469 C 23.042162 2.9980469 22.084349 3.3309171 21.316406 3.9941406 L 3.7871094 19.132812 A 1.0001 1.0001 0 0 0 3.7832031 19.134766 C 3.0520846 19.7701 2.8689211 20.781262 3.1621094 21.568359 C 3.4552977 22.355457 4.2597544 23 5.2304688 23 L 8 23 L 36 23 A 1.0001 1.0001 0 1 0 36 21 L 8 21 L 5.2304688 21 C 5.0811829 21 5.0689211 20.95454 5.0371094 20.869141 C 5.0052974 20.783741 4.9868251 20.739151 5.0957031 20.644531 L 22.623047 5.5058594 C 23.419161 4.8183063 24.580839 4.8183063 25.376953 5.5058594 L 32.345703 11.527344 A 1.0001 1.0001 0 0 0 34 10.769531 L 34 6 L 37 6 L 37 15.089844 A 1.0001 1.0001 0 0 0 37.345703 15.847656 L 42.904297 20.644531 C 43.013175 20.739151 42.994701 20.783738 42.962891 20.869141 C 42.931083 20.954543 42.918817 21 42.769531 21 L 40 21 A 1.0001 1.0001 0 0 0 39 22 L 39 42 C 39 42.56503 38.56503 43 38 43 L 31 43 C 30.43497 43 30 42.56503 30 42 L 30 32 C 30 30.354545 28.645455 29 27 29 L 21 29 C 19.354545 29 18 30.354545 18 32 L 18 42 C 18 42.56503 17.56503 43 17 43 L 10 43 C 9.4349698 43 9 42.56503 9 42 L 9 26 A 1.0001 1.0001 0 1 0 7 26 L 7 42 C 7 43.64497 8.3550302 45 10 45 L 17 45 C 18.64497 45 20 43.64497 20 42 L 20 32 C 20 31.445455 20.445455 31 21 31 L 27 31 C 27.554545 31 28 31.445455 28 32 L 28 42 C 28 43.64497 29.35503 45 31 45 L 38 45 C 39.64497 45 41 43.64497 41 42 L 41 23 L 42.769531 23 C 43.740246 23 44.544702 22.355457 44.837891 21.568359 C 45.131079 20.781262 44.947919 19.770146 44.216797 19.134766 A 1.0001 1.0001 0 0 0 44.212891 19.132812 L 39 14.632812 L 39 6 C 39 4.9045455 38.095455 4 37 4 L 34 4 C 32.904545 4 32 4.9045455 32 6 L 32 8.5859375 L 26.683594 3.9941406 C 25.915651 3.3309171 24.957838 2.9980469 24 2.9980469 z"/></svg>')
                 -webkit-mask-repeat: no-repeat
@@ -728,7 +804,7 @@ slots:
                 top: 250px
                 width: 30px
                 height: 30px
-                background-color: '=props.iconColor ? props.iconColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                background-color: '=props.buzzerIconColor ? props.buzzerIconColor : (themeOptions.dark === "dark") ? "white" : "black"'
                 -webkit-mask-image: url('data:image/svg+xml, <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16.7438 17H3L3.67285 15.9408C4.89971 14.0096 5.55243 11.7583 5.55243 9.45798V8.4C5.55243 7.61493 5.69119 6.86288 5.94511 6.16791M8.46159 3C9.4362 2.36687 10.5937 2 11.8353 2C15.3053 2 18.1182 4.86537 18.1182 8.4V9.45798C18.1182 11.0231 18.4204 12.5656 19 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M11 20.8889V20.8889C11.5344 21.4827 12.4656 21.4827 13 20.8889V20.8889" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M2 2L22 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>')
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
@@ -772,7 +848,7 @@ slots:
                   config:
                     tag: circle
                     r: 4
-                    fill: "=props.flowColor ? props.flowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    fill: "=props.bypassFlowColor ? props.bypassFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
                     visible: "=props.loadEnabled && props.itemGridActive && items[props.loadEnabled].state === 'ON' && items[props.itemGridActive].state === 'ON'"
                   slots:
                     default:
@@ -799,7 +875,7 @@ slots:
                   config:
                     tag: circle
                     r: 4
-                    fill: "=props.flowColor ? props.flowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    fill: "=props.gridtoac2dcFlowColor ? props.gridtoac2dcFlowColor : '#2196f3'"
                     visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
                   slots:
                     default:
@@ -826,7 +902,7 @@ slots:
                   config:
                     tag: circle
                     r: 4
-                    fill: "=props.flowColor ? props.flowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    fill: "=props.ac2dctobatteryFlowColor ? props.ac2dctobatteryFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
                     visible: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0"
                   slots:
                     default:
@@ -853,7 +929,7 @@ slots:
                   config:
                     tag: circle
                     r: 4
-                    fill: "=props.flowColor ? props.flowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    fill: "=props.batterytodc2acFlowColor ? props.batterytodc2acFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
                     visible: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON'"
                   slots:
                     default:
@@ -880,7 +956,7 @@ slots:
                   config:
                     tag: circle
                     r: 4
-                    fill: "=props.flowColor ? props.flowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    fill: "=props.dc2actohouseFlowColor ? props.dc2actohouseFlowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
                     visible: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON'"
                   slots:
                     default:
@@ -907,7 +983,7 @@ slots:
                   config:
                     tag: circle
                     r: 4
-                    fill: "=props.flowColor ? props.flowColor : (themeOptions.dark === 'dark') ? 'white' : 'black'"
+                    fill: "=props.solartoac2dcFlowColor ? props.solartoac2dcFlowColor : '#ffcc00'"
                     visible: "=props.itemPVPower && Number.parseFloat(items[props.itemPVPower].state) > 5"
                   slots:
                     default:
