@@ -582,6 +582,19 @@ slots:
                 font-size: 11px
                 font-weight: bold
                 text-align: center
+                left: 300px
+                top: 275px
+                width: 50px
+
+          # battery power text
+          - component: Label
+            config:
+              text: "=props.itemBatteryPower ? (items[props.itemBatteryPower].displayState || items[props.itemBatteryPower].state) : '0W'"
+              style:
+                position: absolute
+                font-size: 11px
+                font-weight: bold
+                text-align: center
                 left: 255px
                 top: 330px
                 width: 50px
