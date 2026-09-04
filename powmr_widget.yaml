@@ -247,6 +247,13 @@ config:
     .smooth-fade {
       transition: opacity 0.4s ease-in-out !important;
     }
+    .chart-zone {
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+    }
+    .chart-zone:hover {
+      background-color: rgba(128, 128, 128, 0.1) !important;
+    }
   style:
     position: relative
     width: 100%
@@ -1029,6 +1036,7 @@ slots:
           # grid voltage chart
           - component: oh-link
             config:
+              class: chart-zone
               action: analyzer
               actionAnalyzerItems: =[props.itemGridVoltage]
               style:
@@ -1043,8 +1051,10 @@ slots:
           # pv power chart
           - component: oh-link
             config:
+              class: chart-zone
               action: analyzer
               actionAnalyzerItems: =[props.itemPVPower]
+              visible: "=props.itemPVPower ? (Number.parseFloat(items[props.itemPVPower].state) > 5) : true"
               style:
                 position: absolute
                 left: 10px
@@ -1057,27 +1067,29 @@ slots:
           # battery soc chart
           - component: oh-link
             config:
+              class: chart-zone
               action: analyzer
               actionAnalyzerItems: =[props.itemBatterySOC]
               style:
                 position: absolute
-                left: 200px
-                top: 210px
-                width: 150px
-                height: 160px
+                left: 215px
+                top: 230px
+                width: 140px
+                height: 140px
                 z-index: 999
                 cursor: pointer
 
           # load power chart
           - component: oh-link
             config:
+              class: chart-zone
               action: analyzer
               actionAnalyzerItems: =[props.itemLoadPower]
               style:
                 position: absolute
                 left: 460px
                 top: 240px
-                width: 80px
+                width: 90px
                 height: 130px
                 z-index: 999
                 cursor: pointer
