@@ -491,7 +491,7 @@ slots:
                     rx: 2
                     fill: '=props.batteryColor ? props.batteryColor : (themeOptions.dark === "dark") ? "white" : "black"'
 
-                # outer Shell
+                # outer shell
                 - component: f7-row
                   config:
                     tag: rect
@@ -504,7 +504,7 @@ slots:
                     stroke: '=props.batteryColor ? props.batteryColor : (themeOptions.dark === "dark") ? "white" : "black"'
                     stroke-width: 4
 
-                # base fill - based on SOC
+                # base fill - color based on SOC (Red < 20%, Yellow < 50%, Green >= 50%)
                 - component: f7-row
                   config:
                     tag: rect
@@ -513,7 +513,7 @@ slots:
                     width: 32
                     height: "=0.72 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)"
                     rx: 2
-                    fill: '=props.batteryColor ? props.batteryColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                    fill: "=(Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0) >= 50 ? '#4caf50' : (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0) >= 20 ? '#ff9800' : '#f44336'"
 
                 # animated charging ghost overlay
                 - component: f7-row
@@ -524,7 +524,7 @@ slots:
                     width: 32
                     height: "=0.72 * (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0)"
                     rx: 2
-                    fill: '=props.batteryColor ? props.batteryColor : (themeOptions.dark === "dark") ? "white" : "black"'
+                    fill: "=(Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0) >= 50 ? '#4caf50' : (Number.parseFloat(props.itemBatterySOC ? items[props.itemBatterySOC].state : 0) || 0) >= 20 ? '#ff9800' : '#f44336'"
                     opacity: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0 ? '1' : '0'"
                   slots:
                     default:
