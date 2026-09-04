@@ -1031,9 +1031,9 @@ slots:
               style:
                 position: absolute
                 left: 10px
-                top: 20px
+                top: 80px
                 width: 90px
-                height: 110px
+                height: 160px
                 z-index: 999
                 cursor: pointer
 
@@ -1045,9 +1045,9 @@ slots:
               style:
                 position: absolute
                 left: 10px
-                top: 150px
+                top: 240px
                 width: 100px
-                height: 250px
+                height: 150px
                 z-index: 999
                 cursor: pointer
 
