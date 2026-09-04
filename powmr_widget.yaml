@@ -280,6 +280,7 @@ slots:
           border-radius: 15px
           font-size: 11px
           font-weight: bold
+          font-family: ui-monospace, SFMono-Regular, Consolas, monospace
           text-align: center
           box-shadow: 0px 2px 4px rgba(0,0,0,0.2)
           z-index: 100
@@ -297,6 +298,10 @@ slots:
           transform-origin: top left
           margin: 0
           padding: 0
+          # dim the whole dashboard if offline
+          transition: filter 0.5s, opacity 0.5s
+          opacity: '=items[props.inverterOnline].state === "online" ? "1" : "0.4"'
+          filter: '=items[props.inverterOnline].state === "online" ? "none" : "grayscale(100%)"'
 
       slots:
         default:
@@ -326,6 +331,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 30px
                 top: 85px
@@ -341,6 +347,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 30px
                 top: 105px
@@ -373,6 +380,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 35px
                 top: 330px
@@ -388,6 +396,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 35px
                 top: 350px
@@ -403,6 +412,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 110px
                 top: 295px
@@ -418,6 +428,7 @@ slots:
                 position: absolute
                 font-size: 14px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 260px
                 top: 120px
@@ -542,6 +553,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 215px
                 top: 275px
@@ -555,6 +567,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 300px
                 top: 275px
@@ -568,6 +581,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 255px
                 top: 330px
@@ -581,6 +595,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 255px
                 top: 350px
@@ -595,6 +610,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 200px
                 top: 210px
@@ -610,6 +626,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 300px
                 top: 210px
@@ -674,6 +691,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 480px
                 top: 330px
@@ -687,6 +705,7 @@ slots:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
+                font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
                 left: 480px
                 top: 350px
