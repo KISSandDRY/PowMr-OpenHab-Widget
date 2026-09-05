@@ -698,7 +698,7 @@ slots:
                 left: 300px
                 top: 210px
                 width: 50px
-                opacity: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON' ? '1' : '0'"
+                opacity: "=(props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON') || (props.itemBatteryDischargeCurrent && Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) > 0.2) ? '1' : '0'"
 
           # dc2ac icon
           - component: f7-block
