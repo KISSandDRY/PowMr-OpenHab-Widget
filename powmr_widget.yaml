@@ -517,7 +517,7 @@ slots:
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
                 -webkit-mask-size: contain
-                opacity: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0 ? '1' : '0'"
+                opacity: "=(props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0) || (props.itemPVPower && Number.parseFloat(items[props.itemPVPower].state) > 5) || (props.itemGridActive && items[props.itemGridActive].state === 'ON') ? '1' : '0'"
 
           # dynamic battery icon
           - component: f7-row
@@ -715,7 +715,7 @@ slots:
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
                 -webkit-mask-size: contain
-                opacity: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON' ? '1' : '0'"
+                opacity: "=(props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON') || (props.itemBatteryDischargeCurrent && Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) > 0.2) ? '1' : '0'"
 
           # house icon background
           - component: f7-block
@@ -927,7 +927,7 @@ slots:
                   config:
                     tag: g
                     class: smooth-fade
-                    opacity: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON' ? '1' : '0'"
+                    opacity: "=(props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON') || (props.itemBatteryDischargeCurrent && Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) > 0.2) ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
@@ -964,7 +964,7 @@ slots:
                   config:
                     tag: g
                     class: smooth-fade
-                    opacity: "=props.itemRunningOnBattery && items[props.itemRunningOnBattery].state === 'ON' ? '1' : '0'"
+                    opacity: "=props.itemLoadPower && Number.parseFloat(items[props.itemLoadPower].state) > 5 && items[props.itemGridActive].state !== 'ON' ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
