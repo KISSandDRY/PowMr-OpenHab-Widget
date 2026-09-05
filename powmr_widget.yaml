@@ -1040,6 +1040,7 @@ slots:
               class: chart-zone
               action: analyzer
               actionAnalyzerItems: =[props.itemGridVoltage]
+              tooltip: View Grid History
               style:
                 position: absolute
                 left: 10px
@@ -1055,6 +1056,7 @@ slots:
               class: chart-zone
               action: analyzer
               actionAnalyzerItems: =[props.itemPVPower]
+              tooltip: View Solar History
               visible: "=props.itemPVPower ? (Number.parseFloat(items[props.itemPVPower].state) > 5) : true"
               style:
                 position: absolute
@@ -1071,6 +1073,7 @@ slots:
               class: chart-zone
               action: analyzer
               actionAnalyzerItems: =[props.itemBatterySOC]
+              tooltip: View Battery SOC History
               style:
                 position: absolute
                 left: 215px
@@ -1086,6 +1089,7 @@ slots:
               class: chart-zone
               action: analyzer
               actionAnalyzerItems: =[props.itemLoadPower]
+              tooltip: View Load History
               style:
                 position: absolute
                 left: 460px
