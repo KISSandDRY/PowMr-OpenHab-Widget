@@ -657,16 +657,16 @@ slots:
           # battery status text
           - component: Label
             config:
-              text: "=props.chargingItem ? (items[props.chargingItem].displayState || items[props.chargingItem].state) : ''"
+              text: "=(props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0.2) ? 'CHARGING' : ((props.itemBatteryDischargeCurrent && Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) > 0.2) ? 'DISCHARGING' : 'IDLE')"
               style:
                 position: absolute
                 font-size: 11px
                 font-weight: bold
                 font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
-                left: 255px
+                left: 235px
                 top: 350px
-                width: 50px
+                width: 90px
 
           # battery charging current text
           - component: Label
