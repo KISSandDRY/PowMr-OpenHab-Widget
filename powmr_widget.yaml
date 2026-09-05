@@ -336,7 +336,7 @@ slots:
           - component: Label
             config:
               class: smooth-fade
-              text: "=props.itemGridVoltage ? (items[props.itemGridVoltage].displayState || items[props.itemGridVoltage].state) : '0V'"
+              text: "=props.itemGridVoltage ? (items[props.itemGridVoltage].displayState || items[props.itemGridVoltage].state + 'V') : '0 V'"
               style:
                 position: absolute
                 font-size: 11px
@@ -352,7 +352,7 @@ slots:
           - component: Label
             config:
               class: smooth-fade
-              text: "=props.itemGridFrequency ? (items[props.itemGridFrequency].displayState || items[props.itemGridFrequency].state) : '0Hz'"
+              text: "=props.itemGridFrequency ? (items[props.itemGridFrequency].displayState || items[props.itemGridFrequency].state + 'Hz') : '0 Hz'"
               style:
                 position: absolute
                 font-size: 11px
@@ -442,7 +442,7 @@ slots:
           - component: Label
             config:
               class: smooth-fade
-              text: "=props.itemPVPower ? (items[props.itemPVPower].displayState || items[props.itemPVPower].state) : '0W'"
+              text: "=props.itemPVPower ? (items[props.itemPVPower].displayState || items[props.itemPVPower].state + 'W') : '0 W'"
               style:
                 position: absolute
                 font-size: 11px
@@ -458,7 +458,7 @@ slots:
           - component: Label
             config:
               class: smooth-fade
-              text: "=props.itemPVVoltage ? (items[props.itemPVVoltage].displayState || items[props.itemPVVoltage].state) : '0V'"
+              text: "=props.itemPVVoltage ? (items[props.itemPVVoltage].displayState || items[props.itemPVVoltage].state + 'V') : '0 V'"
               style:
                 position: absolute
                 font-size: 11px
@@ -474,7 +474,7 @@ slots:
           - component: Label
             config:
               class: smooth-fade
-              text: "=props.itemPVCurrent ? (items[props.itemPVCurrent].displayState || items[props.itemPVCurrent].state) : '0A'"
+              text: "=props.itemPVCurrent ? (items[props.itemPVCurrent].displayState || items[props.itemPVCurrent].state + 'A') : '0 A'"
               style:
                 position: absolute
                 font-size: 11px
@@ -615,7 +615,7 @@ slots:
           # battery SOC text
           - component: Label
             config:
-              text: "=props.itemBatterySOC ? (items[props.itemBatterySOC].displayState || items[props.itemBatterySOC].state) + ' %' : '0%'"
+              text: "=props.itemBatterySOC ? (items[props.itemBatterySOC].displayState || items[props.itemBatterySOC].state + ' %') : '0 %'"
               style:
                 position: absolute
                 font-size: 11px
@@ -629,7 +629,7 @@ slots:
           # battery voltage text
           - component: Label
             config:
-              text: "=props.itemBatteryVoltage ? (items[props.itemBatteryVoltage].displayState || items[props.itemBatteryVoltage].state) : '0V'"
+              text: "=props.itemBatteryVoltage ? (items[props.itemBatteryVoltage].displayState || items[props.itemBatteryVoltage].state + 'V') : '0 V'"
               style:
                 position: absolute
                 font-size: 11px
@@ -643,7 +643,7 @@ slots:
           # battery power text
           - component: Label
             config:
-              text: "=props.itemBatteryPower ? (items[props.itemBatteryPower].displayState || items[props.itemBatteryPower].state) : '0W'"
+              text: "=props.itemBatteryPower ? (items[props.itemBatteryPower].displayState || items[props.itemBatteryPower].state + 'W') : '0 W'"
               style:
                 position: absolute
                 font-size: 11px
@@ -672,7 +672,7 @@ slots:
           - component: Label
             config:
               class: smooth-fade
-              text: "=props.itemBatteryChargeCurrent ? (items[props.itemBatteryChargeCurrent].displayState || items[props.itemBatteryChargeCurrent].state) : '0A'"
+              text: "=props.itemBatteryChargeCurrent ? (items[props.itemBatteryChargeCurrent].displayState || items[props.itemBatteryChargeCurrent].state + 'A') : '0 A'"
               style:
                 position: absolute
                 font-size: 11px
@@ -688,7 +688,7 @@ slots:
           - component: Label
             config:
               class: smooth-fade
-              text: "=props.itemBatteryDischargeCurrent ? (items[props.itemBatteryDischargeCurrent].displayState || items[props.itemBatteryDischargeCurrent].state) : '0A'"
+              text: "=props.itemBatteryDischargeCurrent ? (items[props.itemBatteryDischargeCurrent].displayState || items[props.itemBatteryDischargeCurrent].state + 'A') : '0 A'"
               style:
                 position: absolute
                 font-size: 11px
@@ -753,7 +753,7 @@ slots:
           # house load percent text
           - component: Label
             config:
-              text: "=props.itemLoadPercent ? (items[props.itemLoadPercent].displayState || items[props.itemLoadPercent].state) : '0%'"
+              text: "=props.itemLoadPercent ? (items[props.itemLoadPercent].displayState || items[props.itemLoadPercent].state + '%') : '0 %'"
               style:
                 position: absolute
                 font-size: 11px
@@ -767,7 +767,7 @@ slots:
           # house load power text
           - component: Label
             config:
-              text: "=props.itemLoadPower ? (items[props.itemLoadPower].displayState || items[props.itemLoadPower].state) : '0W'"
+              text: "=props.itemLoadPower ? (items[props.itemLoadPower].displayState || items[props.itemLoadPower].state + 'W') : '0 W'"
               style:
                 position: absolute
                 font-size: 11px
