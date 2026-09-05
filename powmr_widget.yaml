@@ -418,6 +418,7 @@ slots:
                           stroke: "#ffcc00"
                           stroke-width: 2.5
                           stroke-dasharray: 6 6
+                          stroke-linecap: round
                         slots:
                           default:
                             - component: f7-row
