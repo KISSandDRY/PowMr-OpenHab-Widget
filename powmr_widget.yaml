@@ -837,7 +837,7 @@ slots:
                                 attributeName: stroke-dashoffset
                                 values: 16;0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -874,7 +874,7 @@ slots:
                                 attributeName: stroke-dashoffset
                                 values: 16;0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -911,7 +911,7 @@ slots:
                                 attributeName: stroke-dashoffset
                                 values: 16;0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryChargeCurrent].state) || 1))) + 's'"
+                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(props.itemBatteryChargeCurrent ? items[props.itemBatteryChargeCurrent].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -948,7 +948,7 @@ slots:
                                 attributeName: stroke-dashoffset
                                 values: 16;0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(items[props.itemBatteryDischargeCurrent].state) || 1))) + 's'"
+                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(props.itemBatteryDischargeCurrent ? items[props.itemBatteryDischargeCurrent].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -985,7 +985,7 @@ slots:
                                 attributeName: stroke-dashoffset
                                 values: 16;0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemLoadPower].state) || 1))) + 's'"
+                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -1022,7 +1022,7 @@ slots:
                                 attributeName: stroke-dashoffset
                                 values: 16;0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(items[props.itemPVPower].state) || 1))) + 's'"
+                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemPVPower ? items[props.itemPVPower].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
