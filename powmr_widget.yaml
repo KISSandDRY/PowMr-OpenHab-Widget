@@ -853,7 +853,7 @@ slots:
                   config:
                     tag: g
                     class: smooth-fade
-                    opacity: "=props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0 ? '1' : '0'"
+                    opacity: "=(props.itemGridActive && items[props.itemGridActive].state === 'ON') && (props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0) ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
@@ -964,7 +964,7 @@ slots:
                   config:
                     tag: g
                     class: smooth-fade
-                    opacity: "=props.itemLoadPower && Number.parseFloat(items[props.itemLoadPower].state) > 5 && items[props.itemGridActive].state !== 'ON' ? '1' : '0'"
+                    opacity: "=props.itemLoadPower && Number.parseFloat(items[props.itemLoadPower].state) > 5 && (!props.itemGridActive || items[props.itemGridActive].state !== 'ON') ? '1' : '0'"
                   slots:
                     default:
                       - component: f7-row
