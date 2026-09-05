@@ -273,7 +273,7 @@ slots:
     # online status text
     - component: Label
       config:
-        text: '=items[props.inverterOnline].state === "online" ? "ONLINE" : "OFFLINE"'
+        text: '=(props.inverterOnline && items[props.inverterOnline].state === "online") ? "ONLINE" : "OFFLINE"'
         style:
           position: absolute
           top: 8px
@@ -285,7 +285,7 @@ slots:
           align-items: center
           justify-content: center
           padding: 0
-          background-color: '=items[props.inverterOnline].state === "online" ? "#4caf50" : "#f44336"'
+          background-color: '=(props.inverterOnline && items[props.inverterOnline].state === "online") ? "#4caf50" : "#f44336"'
           color: "#ffffff"
           border-radius: 15px
           font-size: 11px
@@ -310,8 +310,8 @@ slots:
           padding: 0
           # dim the whole dashboard if offline
           transition: filter 0.5s, opacity 0.5s
-          opacity: '=items[props.inverterOnline].state === "online" ? "1" : "0.4"'
-          filter: '=items[props.inverterOnline].state === "online" ? "none" : "grayscale(100%)"'
+          opacity: '=(props.inverterOnline && items[props.inverterOnline].state === "online") ? "1" : "0.4"'
+          filter: '=(props.inverterOnline && items[props.inverterOnline].state === "online") ? "none" : "grayscale(100%)"'
 
       slots:
         default:
