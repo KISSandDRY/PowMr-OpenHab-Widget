@@ -517,7 +517,7 @@ slots:
                 -webkit-mask-repeat: no-repeat
                 -webkit-mask-position: center
                 -webkit-mask-size: contain
-                opacity: "=(props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0) || (props.itemPVPower && Number.parseFloat(items[props.itemPVPower].state) > 5) || (props.itemGridActive && items[props.itemGridActive].state === 'ON') ? '1' : '0'"
+                opacity: "=(props.itemBatteryChargeCurrent && Number.parseFloat(items[props.itemBatteryChargeCurrent].state) > 0) || (props.itemPVCurrent && Number.parseFloat(items[props.itemPVCurrent].state) > 0) ? '1' : '0'"
 
           # dynamic battery icon
           - component: f7-row
