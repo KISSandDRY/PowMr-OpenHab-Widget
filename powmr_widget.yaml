@@ -822,26 +822,28 @@ slots:
                       - component: f7-row
                         config:
                           tag: path
-                          d: M0 10 L405 10 L405 105
+                          d: M0 10 L395 10 A 10 10 0 0 1 405 20 L405 101
                           fill: none
                           stroke: "=props.bypassFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
                           stroke-linecap: round
                           stroke-linejoin: round
                           stroke-dasharray: 10 6
+                          stroke-dashoffset: 0
                         slots:
                           default:
                             - component: f7-row
                               config:
                                 tag: animate
                                 attributeName: stroke-dashoffset
-                                values: 16;0
+                                from: 16
+                                to: 0
                                 repeatCount: indefinite
                                 dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
-                          d: M400 100 L405 105 L410 100
+                          d: M400 100 L403 103 Q405 105 407 103 L410 100
                           fill: none
                           stroke: "=props.bypassFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
@@ -859,26 +861,28 @@ slots:
                       - component: f7-row
                         config:
                           tag: path
-                          d: M0 55 L40 55
+                          d: M0 55 L36 55
                           fill: none
                           stroke: "=props.gridtoac2dcFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
                           stroke-linecap: round
                           stroke-linejoin: round
                           stroke-dasharray: 10 6
+                          stroke-dashoffset: 0
                         slots:
                           default:
                             - component: f7-row
                               config:
                                 tag: animate
                                 attributeName: stroke-dashoffset
-                                values: 16;0
+                                from: 16
+                                to: 0
                                 repeatCount: indefinite
                                 dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
-                          d: M35 50 L40 55 L35 60
+                          d: M35 50 L38 53 Q40 55 38 57 L35 60
                           fill: none
                           stroke: "=props.gridtoac2dcFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
@@ -896,26 +900,28 @@ slots:
                       - component: f7-row
                         config:
                           tag: path
-                          d: M105 55 L170 55 L170 105
+                          d: M105 55 L160 55 A 10 10 0 0 1 170 65 L170 101
                           fill: none
                           stroke: "=props.ac2dctobatteryFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
                           stroke-linecap: round
                           stroke-linejoin: round
                           stroke-dasharray: 10 6
+                          stroke-dashoffset: 0
                         slots:
                           default:
                             - component: f7-row
                               config:
                                 tag: animate
                                 attributeName: stroke-dashoffset
-                                values: 16;0
+                                from: 16
+                                to: 0
                                 repeatCount: indefinite
                                 dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(props.itemBatteryChargeCurrent ? items[props.itemBatteryChargeCurrent].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
-                          d: M165 100 L170 105 L175 100
+                          d: M165 100 L168 103 Q170 105 172 103 L175 100
                           fill: none
                           stroke: "=props.ac2dctobatteryFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
@@ -933,26 +939,28 @@ slots:
                       - component: f7-row
                         config:
                           tag: path
-                          d: M190 100 L190 55 L250 55
+                          d: M190 100 L190 65 A 10 10 0 0 1 200 55 L246 55
                           fill: none
                           stroke: "=props.batterytodc2acFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
                           stroke-linecap: round
                           stroke-linejoin: round
                           stroke-dasharray: 10 6
+                          stroke-dashoffset: 0
                         slots:
                           default:
                             - component: f7-row
                               config:
                                 tag: animate
                                 attributeName: stroke-dashoffset
-                                values: 16;0
+                                from: 16
+                                to: 0
                                 repeatCount: indefinite
                                 dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(props.itemBatteryDischargeCurrent ? items[props.itemBatteryDischargeCurrent].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
-                          d: M245 50 L250 55 L245 60
+                          d: M245 50 L248 53 Q250 55 248 57 L245 60
                           fill: none
                           stroke: "=props.batterytodc2acFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
@@ -970,26 +978,28 @@ slots:
                       - component: f7-row
                         config:
                           tag: path
-                          d: M315 55 L385 55 L385 105
+                          d: M315 55 L375 55 A 10 10 0 0 1 385 65 L385 101
                           fill: none
                           stroke: "=props.dc2actohouseFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
                           stroke-linecap: round
                           stroke-linejoin: round
                           stroke-dasharray: 10 6
+                          stroke-dashoffset: 0
                         slots:
                           default:
                             - component: f7-row
                               config:
                                 tag: animate
                                 attributeName: stroke-dashoffset
-                                values: 16;0
+                                from: 16
+                                to: 0
                                 repeatCount: indefinite
                                 dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
-                          d: M380 100 L385 105 L390 100
+                          d: M380 100 L383 103 Q385 105 387 103 L390 100
                           fill: none
                           stroke: "=props.dc2actohouseFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
@@ -1007,26 +1017,28 @@ slots:
                       - component: f7-row
                         config:
                           tag: path
-                          d: M0 160 L75 160 L75 90
+                          d: M0 160 L65 160 A 10 10 0 0 0 75 150 L75 94
                           fill: none
                           stroke: "=props.solartoac2dcFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
                           stroke-linecap: round
                           stroke-linejoin: round
                           stroke-dasharray: 10 6
+                          stroke-dashoffset: 0
                         slots:
                           default:
                             - component: f7-row
                               config:
                                 tag: animate
                                 attributeName: stroke-dashoffset
-                                values: 16;0
+                                from: 16
+                                to: 0
                                 repeatCount: indefinite
                                 dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemPVPower ? items[props.itemPVPower].state : 1) || 1))) + 's'"
                       - component: f7-row
                         config:
                           tag: path
-                          d: M70 95 L75 90 L80 95
+                          d: M70 95 L73 92 Q75 90 77 92 L80 95
                           fill: none
                           stroke: "=props.solartoac2dcFlowColor || 'var(--icon-color-default)'"
                           stroke-width: 3
