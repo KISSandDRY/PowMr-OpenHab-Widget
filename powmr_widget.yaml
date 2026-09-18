@@ -839,7 +839,7 @@ slots:
                                 from: 16
                                 to: 0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1))) + 's'"
+                                dur: "=Math.max(0.5, 6 - 2 * Math.log10(Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1)) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -878,7 +878,7 @@ slots:
                                 from: 16
                                 to: 0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1))) + 's'"
+                                dur: "=Math.max(0.5, 6 - 2 * Math.log10(Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1)) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -917,7 +917,7 @@ slots:
                                 from: 16
                                 to: 0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(props.itemBatteryChargeCurrent ? items[props.itemBatteryChargeCurrent].state : 1) || 1))) + 's'"
+                                dur: "=Math.max(0.5, 6 - 3 * Math.log10(Number.parseFloat(props.itemBatteryChargeCurrent ? items[props.itemBatteryChargeCurrent].state : 1) || 1)) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -956,7 +956,7 @@ slots:
                                 from: 16
                                 to: 0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 100 / (Number.parseFloat(props.itemBatteryDischargeCurrent ? items[props.itemBatteryDischargeCurrent].state : 1) || 1))) + 's'"
+                                dur: "=Math.max(0.5, 6 - 2 * Math.log10(Number.parseFloat(props.itemBatteryDischargeCurrent ? items[props.itemBatteryDischargeCurrent].state : 1) || 1)) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -995,7 +995,7 @@ slots:
                                 from: 16
                                 to: 0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1))) + 's'"
+                                dur: "=Math.max(0.5, 6 - 2 * Math.log10(Number.parseFloat(props.itemLoadPower ? items[props.itemLoadPower].state : 1) || 1)) + 's'"
                       - component: f7-row
                         config:
                           tag: path
@@ -1034,7 +1034,7 @@ slots:
                                 from: 16
                                 to: 0
                                 repeatCount: indefinite
-                                dur: "=Math.max(0.5, Math.min(6, 1500 / (Number.parseFloat(props.itemPVPower ? items[props.itemPVPower].state : 1) || 1))) + 's'"
+                                dur: "=Math.max(0.5, 6 - 2 * Math.log10(Number.parseFloat(props.itemPVPower ? items[props.itemPVPower].state : 1) || 1)) + 's'"
                       - component: f7-row
                         config:
                           tag: path
