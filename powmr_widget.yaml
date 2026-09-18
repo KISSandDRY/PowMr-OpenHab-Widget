@@ -650,9 +650,9 @@ slots:
                 font-weight: bold
                 font-family: ui-monospace, SFMono-Regular, Consolas, monospace
                 text-align: center
-                left: 255px
+                left: 230px
                 top: 330px
-                width: 50px
+                width: 100px
 
           # battery status text
           - component: Label
@@ -1053,6 +1053,7 @@ slots:
               action: analyzer
               actionAnalyzerItems: =[props.itemGridVoltage]
               tooltip: View Grid History
+              visible: "=props.itemGridActive && items[props.itemGridActive].state == 'ON' ? true : false"
               style:
                 position: absolute
                 left: 10px
